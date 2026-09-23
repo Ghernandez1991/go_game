@@ -26,7 +26,17 @@ func (g *Game) Update() error {
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	// Nothing yet.
-	screen.DrawImage(img, nil)
+	width := img.Bounds().Dx()
+	height := img.Bounds().Dy()
+
+	scaleX := 800.0 / float64(width)
+	scaleY := 600.0 / float64(height)
+
+	opts := &ebiten.DrawImageOptions{}
+	opts.GeoM.Scale(scaleX, scaleY)
+
+	screen.DrawImage(img, opts)
+	//screen.DrawImage(img, nil)
 
 }
 
