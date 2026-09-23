@@ -10,6 +10,8 @@ import (
 
 var img *ebiten.Image
 
+const sampleRate = 44100
+
 func init() {
 	var err error
 	img, _, err = ebitenutil.NewImageFromFile("assets/images/One_Day_at_Horrorland.jpg")
@@ -18,7 +20,10 @@ func init() {
 	}
 }
 
-type Game struct{}
+type Game struct {
+	// audioContext *audio.Context
+	// bpmPlayer    *audio.Player
+}
 
 func (g *Game) Update() error {
 	return nil
